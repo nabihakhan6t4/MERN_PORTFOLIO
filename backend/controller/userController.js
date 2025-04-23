@@ -63,13 +63,14 @@ export const register = catchAsyncErrors(async (req, res, next) => {
     facebookURL,
     linkedInURL,
     avatar: {
-      public_id: cloudinaryResponse.public_id, // Set your cloudinary public_id here
-      url: cloudinaryResponse.secure_url, // Set your cloudinary secure_url here
+      public_id: cloudinaryResponseForAvatar.public_id,
+      url: cloudinaryResponseForAvatar.secure_url,
     },
     resume: {
-      public_id: cloudinaryResponse.public_id, // Set your cloudinary public_id here
-      url: cloudinaryResponse.secure_url, // Set your cloudinary secure_url here
+      public_id: cloudinaryResponseForResume.public_id,
+      url: cloudinaryResponseForResume.secure_url,
     },
+    
   });
   generateToken(user, "Registered!", 201, res);
 });
@@ -193,7 +194,7 @@ export const updatePassword = catchAsyncErrors(async (req, res, next) => {
 });
 
 export const getUserForPortfolio = catchAsyncErrors(async (req, res, next) => {
-  const id = "663296a896e553748ab5b0be";
+  const id = "680781fc446abfd755a0fb1e";
   const user = await User.findById(id);
   res.status(200).json({
     success: true,
@@ -213,8 +214,7 @@ export const forgotPassword = catchAsyncErrors(async (req, res, next) => {
 
   const resetPasswordUrl = `${process.env.DASHBOARD_URL}/password/reset/${resetToken}`;
 
-  const message = `Your Reset Password Token is:- \n\n ${resetPasswordUrl}  \n\n If 
-  You've not requested this email then, please ignore it.`;
+  const message = `Here is your password reset link: \n\n ${resetPasswordUrl}  \n\n If you did not request a password reset, you can safely ignore this email.`;
 
   try {
     await sendEmail({

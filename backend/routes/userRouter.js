@@ -18,7 +18,7 @@ router.post("/register", register);
 router.post("/login", login);
 router.get("/me", isAuthenticated, getUser);
 router.get("/logout", isAuthenticated, logout);
-router.get("/portfolio/me", getUserForPortfolio);
+router.get("/portfolio/me",  getUserForPortfolio);
 router.put("/password/update", isAuthenticated, updatePassword);
 router.put("/me/profile/update", isAuthenticated, updateProfile);
 router.post("/password/forgot", forgotPassword);

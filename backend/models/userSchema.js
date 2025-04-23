@@ -2,7 +2,6 @@ import mongoose from "mongoose";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 import crypto from "crypto"
-
 const userSchema = new mongoose.Schema({
   fullName: {
     type: String,
