@@ -88,7 +88,7 @@ export const getAllProjects = () => async (dispatch) => {
   dispatch(projectSlice.actions.getAllProjectsRequest());
   try {
     const response = await axios.get(
-      "https://mern-stack-portfolio-backend-code.onrender.com/api/v1/project/getall",
+      "http://localhost:4000/api/v1/project/getall",
       { withCredentials: true }
     );
     dispatch(
@@ -106,7 +106,7 @@ export const addNewProject = (data) => async (dispatch) => {
   dispatch(projectSlice.actions.addNewProjectRequest());
   try {
     const response = await axios.post(
-      "https://mern-stack-portfolio-backend-code.onrender.com/api/v1/project/add",
+      "http://localhost:4000/api/v1/project/add",
       data,
       {
         withCredentials: true,

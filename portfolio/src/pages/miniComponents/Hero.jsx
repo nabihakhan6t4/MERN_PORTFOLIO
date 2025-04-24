@@ -4,8 +4,6 @@ import {
   Github,
   Instagram,
   Linkedin,
-  Twitter,
-  Youtube,
 } from "lucide-react";
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
@@ -18,7 +16,7 @@ const Hero = () => {
   useEffect(() => {
     const getMyProfile = async () => {
       const { data } = await axios.get(
-        "https://mern-stack-portfolio-backend-code.onrender.com/api/v1/user/portfolio/me",
+        "http://localhost:4000/api/v1/user/portfolio/me",
         { withCredentials: true }
       );
       setUser(data.user);
@@ -33,12 +31,12 @@ const Hero = () => {
       </div>
       <h1 className="overflow-x-hidden text-[1.3rem] sm:text-[1.75rem] 
       md:text-[2.2rem] lg:text-[2.8rem] tracking-[2px] mb-4">
-        Hey, I'm Zeeshan
+        Hey, I'm {user.fullName || "Nabiha"}
       </h1>
       <h1 className="text-tubeLight-effect overflow-x-hidden text-[1.3rem] 
       sm:text-[1.75rem] md:text-[2.2rem] lg:text-[2.8rem] tracking-[15px]">
         <Typewriter
-          words={["FULLSTACK DEVELOPER", "YOUTUBER", "FREELANCER"]}
+          words={["FRONTEND DEVELOPER", "REACT LOVER", "PORTFOLIO BUILDER"]}
           loop={50}
           cursor
           typeSpeed={70}
@@ -48,9 +46,7 @@ const Hero = () => {
       </h1>
       <div className="w-fit px-5 py-2 bg-slate-50 rounded-[20px] flex gap-5 
       items-center mt-4 md:mt-8 lg:mt-10">
-        <Link to={"https://www.youtube.com/@CodeWithZeeshu"} target="_blank">
-          <Youtube className="text-red-500 w-7 h-7"/>
-        </Link>
+        
         <Link to={user.instagramURL} target="_blank">
           <Instagram className="text-pink-500 w-7 h-7" />
         </Link>
@@ -60,9 +56,7 @@ const Hero = () => {
         <Link to={user.linkedInURL} target="_blank">
           <Linkedin className="text-sky-500 w-7 h-7" />
         </Link>
-        <Link to={user.twitterURL} target="_blank">
-          <Twitter className="text-blue-800 w-7 h-7" />
-        </Link>
+       
       </div>
       <div className="mt-4 md:mt-8 lg:mt-10  flex gap-3">
         <Link to={user.githubURL} target="_blank">
@@ -73,14 +67,14 @@ const Hero = () => {
             <span>Github</span>
           </Button>
         </Link>
-        <Link to={user.resume && user.resume.url} target="_blank">
-          <Button className="rounded-[30px] flex items-center gap-2 flex-row">
-            <span>
+        {user.resume?.url && (
+          <Link to={user.resume.url} target="_blank">
+            <Button className="rounded-[30px] flex items-center gap-2">
               <ExternalLink />
-            </span>
-            <span>Resume </span>
-          </Button>
-        </Link>
+              <span>Resume</span>
+            </Button>
+          </Link>
+        )}
       </div>
       <p className="mt-8 text-xl tracking-[2px]">{user.aboutMe}</p>
       <hr className="my-8 md::my-10 " />
