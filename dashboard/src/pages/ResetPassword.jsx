@@ -12,8 +12,9 @@ import { getUser } from "@/store/slices/userSlice";
 import SpecialLoadingButton from "./sub-components/SpecialLoadingButton";
 import { toast } from "react-toastify";
 
-const Login = () => {
+const ResetPassword = () => {
   const { token } = useParams();
+  console.log(token); 
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const { loading, error, message } = useSelector(
@@ -25,6 +26,7 @@ const Login = () => {
 
   const handleResetPassword = (password, confirmPassword) => {
     dispatch(resetPassword(token, password, confirmPassword));
+
   };
 
   useEffect(() => {
@@ -90,4 +92,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default ResetPassword;
