@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-
+import image from '../../../public/nabiha-black.jpg'
 const About = () => {
   return (
     <div className="w-full flex flex-col overflow-x-hidden">
@@ -25,7 +25,7 @@ const About = () => {
         <div className="grid md:grid-cols-2 my-8 sm:my-20 gap-14">
           <div className="flex justify-center items-center">
             <img
-              src="https://nabihakhan6t4.github.io/nabiha-black.jpg"
+              src={image}
               alt="avatar"
               className="bg-white p-2 sm:p-4 rotate-[25deg] h-[240px] sm:h-[340px] md:h-[350px] lg:h-[450px]"
             />
