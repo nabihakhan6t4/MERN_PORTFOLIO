@@ -10,4 +10,5 @@ export default defineConfig({
       "@": path.resolve(__dirname, "./src"),
     },
   },
+  base: "/MERN_PORTFOLIO-DASHBOARD/",  // Add this line for GitHub Pages
 });
