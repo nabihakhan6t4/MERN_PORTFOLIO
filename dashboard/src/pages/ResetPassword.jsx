@@ -86,7 +86,7 @@ const ResetPassword = () => {
         </div>
       </div>
       <div className="flex justify-center items-center bg-muted">
-        <img src="/reset.png" alt="login" />
+        <img src="reset.png" alt="login" />
       </div>
     </div>
   );
