@@ -32,7 +32,7 @@ function App() {
     dispatch(getAllProjects());
   }, []);
   return (
-    <Router>
+    <Router basename="/MERN_PORTFOLIO-DASHBOARD">
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/login" element={<Login />} />
