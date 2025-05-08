@@ -25,7 +25,7 @@ const About = () => {
         <div className="grid md:grid-cols-2 my-8 sm:my-20 gap-14">
           <div className="flex justify-center items-center">
             <img
-              src="/nabiha-black.jpg"
+              src="https://nabihakhan6t4.github.io/nabiha-black.jpg"
               alt="avatar"
               className="bg-white p-2 sm:p-4 rotate-[25deg] h-[240px] sm:h-[340px] md:h-[350px] lg:h-[450px]"
             />
