@@ -11,7 +11,7 @@ import { useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { getUser } from "./store/slices/userSlice";
 import ForgotPassword from "./pages/ForgotPassword";
-import ResetPassword from "./pages/ResetPassword";
+import ResetPassword from "./pages/ResetPassword"; 
 import { getAllSkills } from "./store/slices/skillSlice";
 import { getAllSoftwareApplications } from "./store/slices/softwareApplicationSlice";
 import { getAllTimeline } from "./store/slices/timelineSlice";
@@ -32,7 +32,7 @@ function App() {
     dispatch(getAllProjects());
   }, []);
   return (
-    <Router basename="/MERN_PORTFOLIO-DASHBOARD">
+    <Router >
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/login" element={<Login />} />
