@@ -44,8 +44,8 @@ const ProjectView = () => {
     getProject();
   }, [id]);
 
-  const descriptionList = description.split(". ");
-  const technologiesList = technologies.split(", ");
+const descriptionList = (description || "").split(". ");
+const technologiesList = (technologies || "").split(", ");
 
   const navigateTo = useNavigate();
   const handleReturnToPortfolio = () => {
@@ -70,7 +70,7 @@ const ProjectView = () => {
                     src={
                       projectBannerPreview
                         ? projectBannerPreview
-                        : "/avatarHolder.jpg"
+                        : "/avatarholder.jpeg"
                     }
                     alt="projectBanner"
                     className="w-full h-auto"
